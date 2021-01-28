@@ -40,7 +40,7 @@ function Home(props) {
       >
         <Grid item xs={12}>
           <Typography paragraph={true} align='center' component="h2" className="homeTitle">
-            POSTMARK
+            POSTMARK HOME
           </Typography>
         </Grid>
       </Grid>

@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import List from '@material-ui/core/List';
 import Grid from '@material-ui/core/List';
@@ -9,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Popover from '@material-ui/core/Popover';
 import ListItem from '@material-ui/core/ListItem';
-import DeleteIcon from '@material-ui/icons/Delete';
+import MenuIcon from '@material-ui/icons/Menu';
 import { deepOrange } from '@material-ui/core/colors';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -37,22 +38,12 @@ const useStyles = makeStyles((theme) => ({
 
 function Nav(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [drawerState, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -72,17 +63,53 @@ function Nav(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem>
-          <ListItemText>
-            <Typography variant="h1" className="headerTitle">Nav:</Typography>
-          </ListItemText>
+        <ListItem href="/">
+          <Link to='/'>
+            <ListItemAvatar>
+            i will be an avatar
+                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+            </ListItemAvatar>
+            <ListItemText>
+              <Typography variant="h1" className="headerTitle">Home</Typography>
+            </ListItemText>
+          </Link>
         </ListItem>
+        <ListItem href="/convert">
+          <Link to='/convert'>
+            <ListItemAvatar>
+              i will be an avatar
+                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+            </ListItemAvatar>
+            <ListItemText>
+              <Typography variant="h1" className="headerTitle">Convert</Typography>
+            </ListItemText>
+          </Link>
+        </ListItem>
+        <ListItem href="/convert">
+          <Link to='/about'>
+            <ListItemAvatar>
+            i will be an avatar
+                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+            </ListItemAvatar>
+            <ListItemText>
+              <Typography variant="h1" className="headerTitle">About</Typography>
+            </ListItemText>
+          </Link>
+        </ListItem>       
       </List>
     </div>
   );
 
   return (
     <div className="appNav">
+      <IconButton edge="start"
+        onClick={toggleDrawer('left', true)}
+        className={classes.menuButton}
+        color="inherit"
+        aria-label="menu"
+      >
+        <MenuIcon fontSize="large" />
+      </IconButton>
       <Drawer anchor={'left'} open={drawerState['left']} onClose={toggleDrawer('left', false)}>
         {list('anchor')}
       </Drawer>
