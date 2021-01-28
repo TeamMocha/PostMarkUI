@@ -3,6 +3,10 @@
   height: 100%;
   min-height: 100vh;
 }
+.subWrapper {
+  display: block;
+  height: 100%;
+}
 .headerTitle {
   flex-grow: 1;
 }

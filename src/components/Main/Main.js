@@ -9,22 +9,20 @@ class Main extends React.Component{
 
   render(){
     return (
-      <div id="main">
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/convert">
-            <Convert />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route>
-            <div>404</div>
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/convert">
+          <Convert />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route>
+          <div>404 - Not Found</div>
+        </Route>
+      </Switch>
     )
   }
 }

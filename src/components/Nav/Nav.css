@@ -5,11 +5,16 @@
   font-weight: bold;
 }
 
-#appNav h1.headerTitle {
+#appNav h2.headerTitle {
   flex-grow: 1;
   font-family: 'Blackout Two AM' !important;
-  font-size: clamp(24pt, 6vw, 32pt);
-  margin-top: clamp(-20pt, -4vw, -16px);
-  margin-bottom: clamp(12pt,3.6vw, 16px);
+  font-size: clamp(16pt, 4vw, 21pt);
+  margin-top: clamp(-13.33pt, -2.66vw, -10.66px);
   white-space: nowrap;
+}
+
+
+#appNav a:visited h2.headerTitle, #appNav a:link h2.headerTitle
+{
+  color: black !important;
 }

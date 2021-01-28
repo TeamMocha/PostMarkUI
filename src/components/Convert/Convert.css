@@ -1,6 +1,14 @@
-#appHome .homeTitle {
+#appConvert .homeTitle {
     font-family: 'Blackout Two AM';
     font-size: min(9.6vmin, 56px);
-    margin-top: 20px;
+    margin-top: -20px;
+    white-space: nowrap;
+}
+
+#appConvert .sectionTitle {
+    /* font-family: 'Blackout Two AM'; */
+    font-size: min(9.6vmin, 24px);
+    font-weight: bold;
+    margin-top: -10px;
     white-space: nowrap;
 }
