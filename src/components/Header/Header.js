@@ -31,13 +31,10 @@ function Header(props) {
   return (
     <AppBar color="primary" className={classes.appHeader} id="appHeader">
       <Toolbar>
-        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          <MenuIcon fontSize="large" />
-        </IconButton>
+        <Nav />
         <Typography variant="h1" className="headerTitle">
           POSTMARK
         </Typography>
-        <Nav />
       </Toolbar>
     </AppBar>
   );
