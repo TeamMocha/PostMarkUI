@@ -22,7 +22,10 @@ Creating a UI for the PostMark npm, bringing in the functionality of this node p
 
 ### Links and Resources
 
-> `https://pokeapi.co/api/v2/pokemon`
+- `https://pokeapi.co/api/v2/pokemon` - used as a PostMark example
+- `https://material-ui.com/` 
+- `https://github.com/reduxjs/redux-thunk` - middleware
+- `https://www.npmjs.com/package/redux-thunk`
 
 ### Setup
 
