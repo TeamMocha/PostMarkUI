@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
-import Home from '../Home/Home';
+import Main from '../Main/Main';
 import './App.css';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
               <Header />
             </Grid>
             <Grid container item xs={12}>
-              <Home />
+              <Main />
             </Grid>
             <Grid container item xs={12}>
               <Footer />

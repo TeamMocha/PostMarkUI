@@ -9,7 +9,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import './Home.css';
 // Import Redux Store
 import { resetStore } from "../../store/postmark";
 const mapDispatchToProps = { resetStore };
@@ -26,11 +25,11 @@ const useStyles = makeStyles({
   },
 });
 
-function Home(props) {
+function Convert(props) {
   const classes = useStyles();
 
   return (
-    <div id="appHome" className={classes.gridRoot}>
+    <div id="appConvert" className={classes.gridRoot}>
       <Grid
         container
         direction="row"
@@ -39,8 +38,8 @@ function Home(props) {
         spacing={2}
       >
         <Grid item xs={12}>
-          <Typography paragraph={true} align='center' component="h2" className="homeTitle">
-            POSTMARK HOME
+          <Typography paragraph={true} align='center' component="h2" className="convertTitle">
+            Convert
           </Typography>
         </Grid>
       </Grid>
@@ -52,4 +51,4 @@ const mapStateToProps = state => ({
   postmark: state.postmark,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Convert);

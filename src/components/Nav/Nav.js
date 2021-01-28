@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import List from '@material-ui/core/List';
 import Grid from '@material-ui/core/List';
@@ -62,11 +63,39 @@ function Nav(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem>
-          <ListItemText>
-            <Typography variant="h1" className="headerTitle">Nav:</Typography>
-          </ListItemText>
+        <ListItem href="/">
+          <Link to='/'>
+            <ListItemAvatar>
+            i will be an avatar
+                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+            </ListItemAvatar>
+            <ListItemText>
+              <Typography variant="h1" className="headerTitle">Home</Typography>
+            </ListItemText>
+          </Link>
         </ListItem>
+        <ListItem href="/convert">
+          <Link to='/convert'>
+            <ListItemAvatar>
+              i will be an avatar
+                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+            </ListItemAvatar>
+            <ListItemText>
+              <Typography variant="h1" className="headerTitle">Convert</Typography>
+            </ListItemText>
+          </Link>
+        </ListItem>
+        <ListItem href="/convert">
+          <Link to='/about'>
+            <ListItemAvatar>
+            i will be an avatar
+                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+            </ListItemAvatar>
+            <ListItemText>
+              <Typography variant="h1" className="headerTitle">About</Typography>
+            </ListItemText>
+          </Link>
+        </ListItem>       
       </List>
     </div>
   );
