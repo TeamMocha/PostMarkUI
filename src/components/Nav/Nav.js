@@ -7,9 +7,12 @@ import Grid from '@material-ui/core/List';
 import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
+import HomeIcon from '@material-ui/icons/Home';
 import Divider from '@material-ui/core/Divider';
 import Popover from '@material-ui/core/Popover';
 import ListItem from '@material-ui/core/ListItem';
+import InfoIcon from '@material-ui/icons/Info';
+import SendIcon from '@material-ui/icons/Send';
 import MenuIcon from '@material-ui/icons/Menu';
 import { deepOrange } from '@material-ui/core/colors';
 import IconButton from '@material-ui/core/IconButton';
@@ -21,6 +24,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import './Nav.css';
 // Import Redux Store
 import { resetStore } from "../../store/postmark";
+import { WrapText } from '@material-ui/icons';
 const mapDispatchToProps = { resetStore };
 
 const useStyles = makeStyles((theme) => ({
@@ -63,39 +67,46 @@ function Nav(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem href="/">
-          <Link to='/'>
+
+        <Link to='/' color="inherit">
+          <ListItem href="/">
             <ListItemAvatar>
-            i will be an avatar
-                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+              <Avatar alt='Home'>
+                <HomeIcon />
+              </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h1" className="headerTitle">Home</Typography>
+              <Typography variant="h2" className="headerTitle">Home</Typography>
             </ListItemText>
-          </Link>
-        </ListItem>
-        <ListItem href="/convert">
-          <Link to='/convert'>
+          </ListItem>
+        </Link>
+
+        <Link to='/convert'>
+          <ListItem href="/convert">
             <ListItemAvatar>
-              i will be an avatar
-                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+              <Avatar alt='Convert'>
+                <SendIcon />
+              </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h1" className="headerTitle">Convert</Typography>
+              <Typography variant="h2" className="headerTitle">Convert</Typography>
             </ListItemText>
-          </Link>
-        </ListItem>
-        <ListItem href="/convert">
-          <Link to='/about'>
+          </ListItem>
+        </Link>
+
+        <Link to='/about'>
+          <ListItem href="/about">
             <ListItemAvatar>
-            i will be an avatar
-                {/* <Avatar alt={item.name} src={`https://source.unsplash.com/${item.imgsrc}/50x50`} /> */}
+              <Avatar alt='About'>
+                <InfoIcon />
+              </Avatar>
             </ListItemAvatar>
             <ListItemText>
-              <Typography variant="h1" className="headerTitle">About</Typography>
+              <Typography variant="h2" className="headerTitle">About</Typography>
             </ListItemText>
-          </Link>
-        </ListItem>       
+          </ListItem>
+        </Link>
+
       </List>
     </div>
   );
