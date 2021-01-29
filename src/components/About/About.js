@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     flexGrow: 1,
   },
   media: {
-    height: 200,
+    height: 500,
   },
 });
 
@@ -49,7 +49,7 @@ function About(props) {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/public/headshots/Matt_ravenmoore.jpg"
+                image="/headshots/Matt_ravenmoore.jpg"
                 title="Matt Ravenmore"
               />
               <CardContent>
@@ -61,6 +61,11 @@ function About(props) {
                 </Typography>
               </CardContent>
             </CardActionArea>
+            <CardActions>
+              <Button href='https://www.linkedin.com/in/matt-ravenmoore/'  size="medium" >
+                Linked In
+              </Button>
+            </CardActions>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -68,7 +73,7 @@ function About(props) {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/public/headshots/Jeremy_penning.jpg"
+                image="/headshots/Jeremy_penning.jpg"
                 title="Jeremy Penning"
               />
               <CardContent>
@@ -88,7 +93,7 @@ function About(props) {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/public/headshots/Jeremy_penning.jpg"
+                image="/headshots/Andre_martin.jpg"
                 title="Ander Oliver Martin"
               />
               <CardContent>
@@ -100,6 +105,11 @@ function About(props) {
                 </Typography>
               </CardContent>
             </CardActionArea>
+            <CardActions>
+              <Button href='https://www.linkedin.com/in/andre-o-martin/'  size="medium" >
+                Linked In
+              </Button>
+            </CardActions>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -107,7 +117,7 @@ function About(props) {
             <CardActionArea>
               <CardMedia
                 className={classes.media}
-                image="/public/headshots/Jeremy_penning.jpg"
+                image="/headshots/Sowmya_billakanti.jpg"
                 title="Sowmya Billakanti"
               />
               <CardContent>
@@ -119,6 +129,11 @@ function About(props) {
                 </Typography>
               </CardContent>
             </CardActionArea>
+            <CardActions>
+              <Button href='https://www.linkedin.com/in/sowmya-billakanti/'  size="medium" >
+                Linked In
+              </Button>
+            </CardActions>
           </Card>
         </Grid>
       </Grid>

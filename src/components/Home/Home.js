@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 function Home(props) {
   const classes = useStyles();
 
@@ -36,16 +40,17 @@ function Home(props) {
             POSTMARK HOME
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <Typography paragraph={true} align='center' component="h4" className="instructionsTitle">
             Instructions
           </Typography>
-          <Typography paragraph={true} align='center' component="p" className="instructions">
             <List className={classes.root}>
               <ListItem>
-                <ListItemText>
-                  Step 1: Navigate to Convert page
-                </ListItemText>
+                <ListItemLink href='/convert'>
+                  <ListItemText>
+                    Step 1: Navigate to Convert page
+                  </ListItemText>
+                </ListItemLink>
               </ListItem>
               <ListItem>
                 <ListItemText>
@@ -63,9 +68,8 @@ function Home(props) {
                 </ListItemText>
               </ListItem>
             </List>
-          </Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={8}>
           <Typography paragraph={true} align='center' component="h4" className="pmTitle">
             About PostMark
           </Typography>
