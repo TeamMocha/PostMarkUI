@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
@@ -13,8 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import './Convert.css';
 
 // Import Redux Store
-import { resetStore } from "../../store/postmark";
-const mapDispatchToProps = { resetStore };
+import { post, setFieldState } from "../../store/postmark";
+const mapDispatchToProps = { post, setFieldState };
 
 const useStyles = makeStyles((theme) => ({
   gridRoot: {
@@ -28,10 +28,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+const doPost = (payload) => {
+  
+}
+
 let lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non lectus et enim vehicula tincidunt in id justo. Aliquam nunc mauris, porttitor at vulputate ac, cursus non nibh. Morbi ut tincidunt libero, ut tincidunt mauris. Aenean pulvinar dolor sed lacus pulvinar, vel volutpat orci tristique. Maecenas eget tellus quis odio tincidunt pretium eu auctor nisi. Curabitur quis ipsum nibh. Sed vel condimentum libero. Nam cursus pharetra nunc, quis euismod metus condimentum vel. Ut bibendum nulla et ultricies rhoncus. Nulla sollicitudin convallis sem, in auctor sem facilisis sed. Phasellus auctor convallis diam et tincidunt. Nam libero libero, interdum et consectetur vel, dapibus id purus. Morbi mattis metus sed porta consequat. Proin tempor at felis nec consectetur. In consequat nisl in neque euismod volutpat. Mauris lacinia urna volutpat ipsum vulputate elementum. Mauris vestibulum ipsum sem, ut fringilla erat condimentum a. Integer sed aliquam mauris. Ut risus dui, faucibus sit amet venenatis nec, consequat non ipsum. Curabitur placerat neque non metus sodales, eu placerat urna hendrerit. In porta tincidunt varius. Sed condimentum, ante eu euismod imperdiet, diam felis consequat leo, vel iaculis lectus quam et neque. Integer egestas congue condimentum. Sed semper orci neque, vitae ullamcorper nibh posuere vitae. Integer sodales ipsum nec leo scelerisque, non semper tellus fermentum. Aenean ut tincidunt tellus. Nunc efficitur magna velit, ut viverra mi placerat ut. Proin quis feugiat magna. Morbi ac neque dolor. Aliquam porttitor euismod nisi eget porttitor. Integer mollis venenatis lorem. Pellentesque et pellentesque augue, quis fringilla nulla. Maecenas augue enim, placerat eu odio vitae, suscipit fermentum urna. Nulla facilisi. Mauris id nisi at sapien pretium dictum a at turpis. In nec nunc cursus, rutrum urna non, malesuada nisl. Suspendisse et semper felis, non faucibus augue. Donec posuere interdum ligula, sit amet sagittis augue consectetur a. Etiam tempor sodales sem, a varius massa iaculis sit amet. Morbi suscipit, quam in tincidunt accumsan, velit magna accumsan lectus, sit amet lobortis mi dui ac lacus. Pellentesque auctor condimentum ullamcorper. `;
 
 function Convert(props) {
   const classes = useStyles();
+
+  const updateStorePostman = (e) => {
+    props.setFieldState(e.target.value)
+  }
 
   return (
     <div id="appConvert" className={classes.gridRoot}>
@@ -51,12 +61,13 @@ function Convert(props) {
             </Typography>
             <Paper className={classes.paper} height="100%">
               <TextField
-                id="outlined-multiline-static"
+                id="postCollectJson"
                 label="Postman Collection JSON"
                 multiline
                 rows={4}
                 variant="outlined"
                 fullWidth={true}
+                onBlur={(event) => updateStorePostman(event)}
               />
             </Paper>
           </Grid>
@@ -67,7 +78,7 @@ function Convert(props) {
               Click
             </Typography>
             <Typography align='center'>
-              <IconButton aria-label="Do Conversion" className={classes.margin}>
+              <IconButton aria-label="Do Conversion" className={classes.margin} onClick={() => props.post(props.collectionBody)}>
                 <SendIcon fontSize="large" />
               </IconButton>
             </Typography>
@@ -80,12 +91,13 @@ function Convert(props) {
                 Get Formatted Markdown
               </Typography>
               <TextField
-                id="outlined-multiline-static"
+                id="markdownResult"
                 label="Formatted Markdown"
                 multiline
                 rows={4}
                 variant="outlined"
                 fullWidth={true}
+                value={props.postmark.responseMarkdown}
               />
             </Paper>
           </Grid>
