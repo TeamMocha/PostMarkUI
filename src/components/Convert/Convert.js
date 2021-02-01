@@ -53,7 +53,7 @@ function Convert(props) {
         </Grid>
 
         {/* The main form element for the user to input a Postman Collection */}
-        <Grid container alignItems="stretch">
+        <Grid container>
           <Grid item xs={12} sm={5} className={classes.gridSub}>
             <Typography paragraph={true} align='center' component="h3" className="sectionTitle">
               Paste your Postman Collection
@@ -66,6 +66,7 @@ function Convert(props) {
                 variant="outlined"
                 fullWidth={true}
                 onBlur={(event) => updateStorePostman(event)}
+                // Need to handle overflow
               />
             </Paper>
           </Grid>
@@ -84,7 +85,7 @@ function Convert(props) {
 
           {/* Another form element with the converted Markdown */}
           <Grid item xs={12} sm={5} className={classes.gridSub}>
-            <Paper className={classes.paper} height="100%">
+            <Grid className={classes.paper} height="100%">
               <Typography paragraph={true} align='center' component="h3" className="sectionTitle">
                 Get Formatted Markdown
               </Typography>
@@ -92,12 +93,11 @@ function Convert(props) {
                 id="markdownResult"
                 label="Formatted Markdown"
                 multiline
-                rows={4}
                 variant="outlined"
                 fullWidth={true}
                 value={props.postmark.responseMarkdown}
               />
-            </Paper>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

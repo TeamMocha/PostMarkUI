@@ -1,5 +1,3 @@
-var bodyParser = require('body-parser');
-
 let initialState = {
   collectionBody: '',
   responseMarkdown: '',
@@ -8,7 +6,7 @@ let initialState = {
 
 const requestOptions = { 
     method: 'POST',
-    headers: {"content-type": "application/json; charset=UTF-8", "Access-Control-Allow-Origin": "*"},
+    headers: {"content-type": "application/json; charset=UTF-8"},
     redirect: 'follow',
     body: '',
     mode: 'cors' }
@@ -17,17 +15,19 @@ const url = 'https://postmark.pixeljava.com/postmark';
 
 export const post = (payload) => async dispatch => {
   requestOptions.body = await payload;
-  console.log({requestOptions});
   return fetch(url, requestOptions)
     .then(response => {
-      dispatch(postAction(response))
+      response.text().then(responseText => {
+        console.log(`ResponseText is: `, responseText);
+        dispatch(postAction(responseText, response.status));
+      })
   })
 }
 
-export const postAction = async (response) => {
+export const postAction = (response, status) => {
   return{
     type: 'POST',
-    payload: await response
+    payload: { responseBody: response, responseStatus: status}
   }
 }
 
@@ -49,17 +49,12 @@ const postmarkStore = (state = initialState, action) => {
 
   switch (type) {
     case 'POST':
-      let postmarkResponse = payload.json();
-      console.log({postmarkResponse});
-      let responseStatus = postmarkResponse.status;
-      let responseBody = postmarkResponse.body;
+      let { responseBody, responseStatus } = payload; // This is currently the PostMark markdown string
       let newStatePost = {responseMarkdown: responseBody, responseStatus: responseStatus, collectionBody: state.collectionBody};
       return newStatePost;
 
     case 'SET_BODY':
-      // console.log(`In SET_BODY`, payload);
       let newState = {responseMarkdown: state.responseMarkdown, responseStatus: state.responseStatus, collectionBody: payload};
-      // console.log(`In newState`, newState);
       return newState;
 
     case 'RESET':
