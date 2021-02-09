@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
+    padding: '20px'
   },
 }));
 
@@ -40,7 +41,7 @@ function Home(props) {
             POSTMARK HOME
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3}>
           <Typography paragraph={true} align='center' component="h4" className="instructionsTitle">
             Instructions
           </Typography>
@@ -69,11 +70,11 @@ function Home(props) {
               </ListItem>
             </List>
         </Grid>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={9}>
           <Typography paragraph={true} align='center' component="h4" className="pmTitle">
             About PostMark
           </Typography>
-          <Typography paragraph={true} align='center' component="p" className="pmAbout">
+          <Typography paragraph={true} component="p" className="pmAbout">
             Auto-generating documentation for postman JSON collections: JSON files are huge and complex. Writing documentation is challenging. We want to solve this problem with our app.
             Why behind the project:
             1. Manual process is repetitive: Imagine you are having to write documentation for a JSON which has 1000 lines. You'd spend half the time in copy-pasting.
